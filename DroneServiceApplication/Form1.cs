@@ -8,14 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DroneServiceApplication
-{/**To Do:
-  * txtCost excepts to enter only numbers, decimals
-  * create method for errors
-  * method to check inputs, txtBoxes should not be empty
-  */
-
+{
     public partial class Form1 : Form
     {
         private List<Drone> FinishedList = new List<Drone>();
@@ -26,8 +22,11 @@ namespace DroneServiceApplication
         public Form1()
         {
             InitializeComponent();
+
+            lstView.View = View.Details;
         }
 
+        //if service wasn't specified it auvtomatically add it to RegularService queue
         private void AddNewItem(object sender, EventArgs e)
         {
             try
@@ -35,28 +34,94 @@ namespace DroneServiceApplication
                 Drone drone = new Drone();
                 drone.SetName(txtName.Text);
                 drone.SetModel(txtModel.Text);
-                drone.SetCost(Double.Parse(txtCost.Text));
+                drone.SetCost(double.Parse(txtCost.Text));
                 drone.SetProblem(txtProblem.Text);
-                drone.SetServiceTag(int.Parse(numUpDown.ToString()));
 
-                if (rdoRegular.Checked)
+                drone.SetServiceTag((int)numUpDown.Value);
+
+                if (GetServicePriority() == 1)
                 {
-                    RegularService.Enqueue(drone);
+                    drone.SetCost((drone.GetCost() * 0.15) + drone.GetCost());
+                    ExpressService.Enqueue(drone);
                 }
                 else
                 {
-                    ExpressService.Enqueue(drone);
+                    RegularService.Enqueue(drone);
                 }
 
-                MessageBox.Show("Regular: " + RegularService);
-                MessageBox.Show("Express: " + ExpressService);
+                lstView.Items.Clear();
+                displayReqularService();
+                displayExpressService();
             }
-            catch(IOException error)
+            catch(FormatException error)
             {
-                //ErrorTrapping(error);
+                ErrorTrapping(error);
             }
+        }
 
+        //if service not specified, in group grp1 nothing checked it returns -1
+        private int GetServicePriority()
+        {
+            foreach (var rdButton in grp1.Controls.OfType<RadioButton>())
+            {
+                if (rdButton.Checked) return rdButton.TabIndex;
+            }
+            return -1;
+        }
+
+        private void ErrorTrapping(Exception error)
+        {
+            MessageBox.Show("Error: " + error.Message);
+
+            Errors.Add(DateTime.Now.ToString() + " Object: " + error.Source + " ,Error type: " + error.GetType() + 
+                " " + error.Message + " " + error.TargetSite);
+
+            stsStrip.Items.Clear();
+            toolStripSplitbtn.DropDownItems.Clear();
+            stsStrip.Items.Add(toolStripSplitbtn);
+
+            Errors.ForEach((action) => toolStripSplitbtn.DropDownItems.Add(action));
+
+            stsStrip.Items.Add(error.HResult.GetType() + " " + error.Message);
+        }
+
+        private void displayReqularService()
+        {
+            foreach(Drone drone in RegularService)
+            {
+                string[] data = {"Regular", drone.GetName(), drone.GetModel(),"$" + ((decimal)drone.GetCost()),
+                drone.GetServiceTag().ToString(), drone.GetProblem()};
+
+                lstView.Items.Add(new ListViewItem(data));
+            }
 
         }
+
+        private void displayExpressService()
+        {
+            foreach(Drone drone in ExpressService)
+            {
+                string[] data = {"Express" ,drone.GetName(), drone.GetModel(),"$" + ((decimal)drone.GetCost()),
+                drone.GetServiceTag().ToString(), drone.GetProblem()};
+
+                lstView.Items.Add(new ListViewItem(data));
+            }
+        }
+
+        //allows to enter only numbers, char.isControls, and symbol: '.', if entered another symbol it replace it with symbol '.'
+        private void txtCost_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar) ||
+                char.IsPunctuation(e.KeyChar))
+            {
+                if(char.IsPunctuation(e.KeyChar) && !e.KeyChar.Equals('.'))
+                {
+                    e.KeyChar = '.';
+                }
+                e.Handled = false;
+            }
+            else e.Handled = true;
+        }
+
     }
 }

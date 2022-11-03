@@ -37,6 +37,12 @@
             this.lbl5 = new System.Windows.Forms.Label();
             this.txtProblem = new System.Windows.Forms.TextBox();
             this.lstView = new System.Windows.Forms.ListView();
+            this.clmService = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmModel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmTag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmProblem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstBox = new System.Windows.Forms.ListBox();
             this.lbl6 = new System.Windows.Forms.Label();
             this.lbl7 = new System.Windows.Forms.Label();
@@ -146,20 +152,59 @@
             // 
             // lstView
             // 
+            this.lstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmService,
+            this.clmName,
+            this.clmModel,
+            this.clmCost,
+            this.clmTag,
+            this.clmProblem});
             this.lstView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstView.FullRowSelect = true;
+            this.lstView.GridLines = true;
             this.lstView.HideSelection = false;
             this.lstView.Location = new System.Drawing.Point(402, 69);
             this.lstView.Name = "lstView";
-            this.lstView.Size = new System.Drawing.Size(355, 504);
+            this.lstView.Size = new System.Drawing.Size(541, 504);
             this.lstView.TabIndex = 6;
             this.lstView.UseCompatibleStateImageBehavior = false;
+            // 
+            // clmService
+            // 
+            this.clmService.Text = "Service";
+            this.clmService.Width = 200;
+            // 
+            // clmName
+            // 
+            this.clmName.Text = "Client";
+            this.clmName.Width = 200;
+            // 
+            // clmModel
+            // 
+            this.clmModel.Text = "Model";
+            this.clmModel.Width = 200;
+            // 
+            // clmCost
+            // 
+            this.clmCost.Text = "Cost";
+            this.clmCost.Width = 200;
+            // 
+            // clmTag
+            // 
+            this.clmTag.Text = "Service Tag";
+            this.clmTag.Width = 200;
+            // 
+            // clmProblem
+            // 
+            this.clmProblem.Text = "Service Problem";
+            this.clmProblem.Width = 200;
             // 
             // lstBox
             // 
             this.lstBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBox.FormattingEnabled = true;
             this.lstBox.ItemHeight = 20;
-            this.lstBox.Location = new System.Drawing.Point(784, 69);
+            this.lstBox.Location = new System.Drawing.Point(949, 69);
             this.lstBox.Name = "lstBox";
             this.lstBox.Size = new System.Drawing.Size(216, 504);
             this.lstBox.TabIndex = 7;
@@ -178,7 +223,7 @@
             // 
             this.lbl7.AutoSize = true;
             this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl7.Location = new System.Drawing.Point(780, 46);
+            this.lbl7.Location = new System.Drawing.Point(945, 46);
             this.lbl7.Name = "lbl7";
             this.lbl7.Size = new System.Drawing.Size(125, 20);
             this.lbl7.TabIndex = 9;
@@ -222,6 +267,7 @@
             this.txtCost.Name = "txtCost";
             this.txtCost.Size = new System.Drawing.Size(135, 26);
             this.txtCost.TabIndex = 14;
+            this.txtCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCost_KeyPress);
             // 
             // lbl4
             // 
@@ -290,7 +336,7 @@
             this.toolStripSplitbtn});
             this.stsStrip.Location = new System.Drawing.Point(0, 615);
             this.stsStrip.Name = "stsStrip";
-            this.stsStrip.Size = new System.Drawing.Size(1012, 22);
+            this.stsStrip.Size = new System.Drawing.Size(1177, 22);
             this.stsStrip.TabIndex = 20;
             this.stsStrip.Text = "Error";
             // 
@@ -307,7 +353,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 637);
+            this.ClientSize = new System.Drawing.Size(1177, 637);
             this.Controls.Add(this.stsStrip);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lbl7);
@@ -353,6 +399,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.StatusStrip stsStrip;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitbtn;
+        private System.Windows.Forms.ColumnHeader clmName;
+        private System.Windows.Forms.ColumnHeader clmModel;
+        private System.Windows.Forms.ColumnHeader clmCost;
+        private System.Windows.Forms.ColumnHeader clmTag;
+        private System.Windows.Forms.ColumnHeader clmService;
+        private System.Windows.Forms.ColumnHeader clmProblem;
     }
 }
 
