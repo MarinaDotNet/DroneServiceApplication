@@ -53,7 +53,7 @@ namespace DroneServiceApplication
                 displayReqularService();
                 displayExpressService();
             }
-            catch(FormatException error)
+            catch (FormatException error)
             {
                 ErrorTrapping(error);
             }
@@ -73,7 +73,7 @@ namespace DroneServiceApplication
         {
             MessageBox.Show("Error: " + error.Message);
 
-            Errors.Add(DateTime.Now.ToString() + " Object: " + error.Source + " ,Error type: " + error.GetType() + 
+            Errors.Add(DateTime.Now.ToString() + " Object: " + error.Source + " ,Error type: " + error.GetType() +
                 " " + error.Message + " " + error.TargetSite);
 
             stsStrip.Items.Clear();
@@ -87,7 +87,7 @@ namespace DroneServiceApplication
 
         private void displayReqularService()
         {
-            foreach(Drone drone in RegularService)
+            foreach (Drone drone in RegularService)
             {
                 string[] data = {"Regular", drone.GetName(), drone.GetModel(),"$" + ((decimal)drone.GetCost()),
                 drone.GetServiceTag().ToString(), drone.GetProblem()};
@@ -99,7 +99,7 @@ namespace DroneServiceApplication
 
         private void displayExpressService()
         {
-            foreach(Drone drone in ExpressService)
+            foreach (Drone drone in ExpressService)
             {
                 string[] data = {"Express" ,drone.GetName(), drone.GetModel(),"$" + ((decimal)drone.GetCost()),
                 drone.GetServiceTag().ToString(), drone.GetProblem()};
@@ -114,7 +114,7 @@ namespace DroneServiceApplication
             if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar) ||
                 char.IsPunctuation(e.KeyChar))
             {
-                if(char.IsPunctuation(e.KeyChar) && !e.KeyChar.Equals('.'))
+                if (char.IsPunctuation(e.KeyChar) && !e.KeyChar.Equals('.'))
                 {
                     e.KeyChar = '.';
                 }
