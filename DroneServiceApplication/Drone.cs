@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//reDo line 33, public void SetProblem(string problem) formatting to Sentence case
+
+/**
+ * author: msichova
+ * student id: P272494
+ * DroneServiceApplication
+ * Date: 08.11.2022
+ */
+
 namespace DroneServiceApplication
 {
     internal class Drone
@@ -12,8 +19,14 @@ namespace DroneServiceApplication
         private string model;
         private string problem;
         private double cost;
-        private int serviceTag;
+        private double serviceTag;
 
+        public Drone(string name, string model, string problem)
+        {
+            this.name = name;
+            this.model = model;
+            this.problem = problem;
+        }
         public void SetName(string name)
         {
             this.name = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name);
@@ -30,7 +43,7 @@ namespace DroneServiceApplication
         {
             return this.model;
         }
-        //in future change here to Sentence case format
+
         public void SetProblem(string problem)
         {
             this.problem = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(problem);
@@ -47,11 +60,11 @@ namespace DroneServiceApplication
         {
             return this.cost;
         }
-        public void SetServiceTag(int serviceTag)
+        public void SetServiceTag(double serviceTag)
         {
             this.serviceTag = serviceTag;
         }
-        public int GetServiceTag()
+        public double GetServiceTag()
         {
             return this.serviceTag;
         }

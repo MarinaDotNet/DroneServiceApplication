@@ -36,13 +36,12 @@
             this.rdoRegular = new System.Windows.Forms.RadioButton();
             this.lbl5 = new System.Windows.Forms.Label();
             this.txtProblem = new System.Windows.Forms.TextBox();
-            this.lstView = new System.Windows.Forms.ListView();
-            this.clmService = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmModel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmTag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clmProblem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstViewRegular = new System.Windows.Forms.ListView();
+            this.clmNameRegular = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmModelRegular = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmCostRegular = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmTagRegular = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmProblemRegular = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstBox = new System.Windows.Forms.ListBox();
             this.lbl6 = new System.Windows.Forms.Label();
             this.lbl7 = new System.Windows.Forms.Label();
@@ -58,6 +57,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.stsStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripSplitbtn = new System.Windows.Forms.ToolStripSplitButton();
+            this.lstViewExpress = new System.Windows.Forms.ListView();
+            this.clmNameExpress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmModelExpress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmCostExpress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmTagExpress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmProblemExpress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbl8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown)).BeginInit();
             this.grp1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -150,54 +156,49 @@
             this.txtProblem.Size = new System.Drawing.Size(327, 145);
             this.txtProblem.TabIndex = 5;
             // 
-            // lstView
+            // lstViewRegular
             // 
-            this.lstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmService,
-            this.clmName,
-            this.clmModel,
-            this.clmCost,
-            this.clmTag,
-            this.clmProblem});
-            this.lstView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstView.FullRowSelect = true;
-            this.lstView.GridLines = true;
-            this.lstView.HideSelection = false;
-            this.lstView.Location = new System.Drawing.Point(402, 69);
-            this.lstView.Name = "lstView";
-            this.lstView.Size = new System.Drawing.Size(541, 504);
-            this.lstView.TabIndex = 6;
-            this.lstView.UseCompatibleStateImageBehavior = false;
+            this.lstViewRegular.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmNameRegular,
+            this.clmModelRegular,
+            this.clmCostRegular,
+            this.clmTagRegular,
+            this.clmProblemRegular});
+            this.lstViewRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstViewRegular.FullRowSelect = true;
+            this.lstViewRegular.GridLines = true;
+            this.lstViewRegular.HideSelection = false;
+            this.lstViewRegular.Location = new System.Drawing.Point(402, 69);
+            this.lstViewRegular.Name = "lstViewRegular";
+            this.lstViewRegular.Size = new System.Drawing.Size(541, 236);
+            this.lstViewRegular.TabIndex = 6;
+            this.lstViewRegular.UseCompatibleStateImageBehavior = false;
+            this.lstViewRegular.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstViewRegular_MouseClick);
             // 
-            // clmService
+            // clmNameRegular
             // 
-            this.clmService.Text = "Service";
-            this.clmService.Width = 200;
+            this.clmNameRegular.Text = "Client";
+            this.clmNameRegular.Width = 100;
             // 
-            // clmName
+            // clmModelRegular
             // 
-            this.clmName.Text = "Client";
-            this.clmName.Width = 200;
+            this.clmModelRegular.Text = "Model";
+            this.clmModelRegular.Width = 100;
             // 
-            // clmModel
+            // clmCostRegular
             // 
-            this.clmModel.Text = "Model";
-            this.clmModel.Width = 200;
+            this.clmCostRegular.Text = "Cost";
+            this.clmCostRegular.Width = 100;
             // 
-            // clmCost
+            // clmTagRegular
             // 
-            this.clmCost.Text = "Cost";
-            this.clmCost.Width = 200;
+            this.clmTagRegular.Text = "Service Tag";
+            this.clmTagRegular.Width = 100;
             // 
-            // clmTag
+            // clmProblemRegular
             // 
-            this.clmTag.Text = "Service Tag";
-            this.clmTag.Width = 200;
-            // 
-            // clmProblem
-            // 
-            this.clmProblem.Text = "Service Problem";
-            this.clmProblem.Width = 200;
+            this.clmProblemRegular.Text = "Service Problem";
+            this.clmProblemRegular.Width = 200;
             // 
             // lstBox
             // 
@@ -205,9 +206,11 @@
             this.lstBox.FormattingEnabled = true;
             this.lstBox.ItemHeight = 20;
             this.lstBox.Location = new System.Drawing.Point(949, 69);
+            this.lstBox.MultiColumn = true;
             this.lstBox.Name = "lstBox";
-            this.lstBox.Size = new System.Drawing.Size(216, 504);
+            this.lstBox.Size = new System.Drawing.Size(541, 504);
             this.lstBox.TabIndex = 7;
+            this.lstBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstBox_MouseDoubleClick);
             // 
             // lbl6
             // 
@@ -215,9 +218,9 @@
             this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl6.Location = new System.Drawing.Point(398, 46);
             this.lbl6.Name = "lbl6";
-            this.lbl6.Size = new System.Drawing.Size(135, 20);
+            this.lbl6.Size = new System.Drawing.Size(121, 20);
             this.lbl6.TabIndex = 8;
-            this.lbl6.Text = "Drones In Service";
+            this.lbl6.Text = "Regular Service";
             // 
             // lbl7
             // 
@@ -263,6 +266,7 @@
             // 
             // txtCost
             // 
+            this.txtCost.BackColor = System.Drawing.SystemColors.Window;
             this.txtCost.Location = new System.Drawing.Point(158, 247);
             this.txtCost.Name = "txtCost";
             this.txtCost.Size = new System.Drawing.Size(135, 26);
@@ -296,6 +300,7 @@
             this.btnDelRegular.TabIndex = 17;
             this.btnDelRegular.Text = "Remove Regular";
             this.btnDelRegular.UseVisualStyleBackColor = true;
+            this.btnDelRegular.Click += new System.EventHandler(this.btnDelRegular_Click);
             // 
             // btnDelExpress
             // 
@@ -305,6 +310,7 @@
             this.btnDelExpress.TabIndex = 18;
             this.btnDelExpress.Text = "Remove Express";
             this.btnDelExpress.UseVisualStyleBackColor = true;
+            this.btnDelExpress.Click += new System.EventHandler(this.btnDelExpress_Click);
             // 
             // groupBox2
             // 
@@ -336,7 +342,7 @@
             this.toolStripSplitbtn});
             this.stsStrip.Location = new System.Drawing.Point(0, 615);
             this.stsStrip.Name = "stsStrip";
-            this.stsStrip.Size = new System.Drawing.Size(1177, 22);
+            this.stsStrip.Size = new System.Drawing.Size(1508, 22);
             this.stsStrip.TabIndex = 20;
             this.stsStrip.Text = "Error";
             // 
@@ -349,17 +355,73 @@
             this.toolStripSplitbtn.Size = new System.Drawing.Size(48, 20);
             this.toolStripSplitbtn.Text = "Error";
             // 
+            // lstViewExpress
+            // 
+            this.lstViewExpress.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clmNameExpress,
+            this.clmModelExpress,
+            this.clmCostExpress,
+            this.clmTagExpress,
+            this.clmProblemExpress});
+            this.lstViewExpress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstViewExpress.FullRowSelect = true;
+            this.lstViewExpress.GridLines = true;
+            this.lstViewExpress.HideSelection = false;
+            this.lstViewExpress.Location = new System.Drawing.Point(402, 337);
+            this.lstViewExpress.Name = "lstViewExpress";
+            this.lstViewExpress.Size = new System.Drawing.Size(541, 236);
+            this.lstViewExpress.TabIndex = 21;
+            this.lstViewExpress.UseCompatibleStateImageBehavior = false;
+            this.lstViewExpress.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstViewExpress_MouseClick);
+            // 
+            // clmNameExpress
+            // 
+            this.clmNameExpress.Text = "Client";
+            this.clmNameExpress.Width = 100;
+            // 
+            // clmModelExpress
+            // 
+            this.clmModelExpress.Text = "Model";
+            this.clmModelExpress.Width = 100;
+            // 
+            // clmCostExpress
+            // 
+            this.clmCostExpress.Text = "Cost";
+            this.clmCostExpress.Width = 100;
+            // 
+            // clmTagExpress
+            // 
+            this.clmTagExpress.Text = "Service Tag";
+            this.clmTagExpress.Width = 100;
+            // 
+            // clmProblemExpress
+            // 
+            this.clmProblemExpress.Text = "Service Problem";
+            this.clmProblemExpress.Width = 200;
+            // 
+            // lbl8
+            // 
+            this.lbl8.AutoSize = true;
+            this.lbl8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl8.Location = new System.Drawing.Point(398, 314);
+            this.lbl8.Name = "lbl8";
+            this.lbl8.Size = new System.Drawing.Size(122, 20);
+            this.lbl8.TabIndex = 22;
+            this.lbl8.Text = "Express Service";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 637);
+            this.ClientSize = new System.Drawing.Size(1508, 637);
+            this.Controls.Add(this.lbl8);
+            this.Controls.Add(this.lstViewExpress);
             this.Controls.Add(this.stsStrip);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lbl7);
             this.Controls.Add(this.lbl6);
             this.Controls.Add(this.lstBox);
-            this.Controls.Add(this.lstView);
+            this.Controls.Add(this.lstViewRegular);
             this.Name = "Form1";
             this.Text = "Drone Service Application";
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown)).EndInit();
@@ -383,7 +445,7 @@
         private System.Windows.Forms.RadioButton rdoRegular;
         private System.Windows.Forms.Label lbl5;
         private System.Windows.Forms.TextBox txtProblem;
-        private System.Windows.Forms.ListView lstView;
+        private System.Windows.Forms.ListView lstViewRegular;
         private System.Windows.Forms.ListBox lstBox;
         private System.Windows.Forms.Label lbl6;
         private System.Windows.Forms.Label lbl7;
@@ -399,12 +461,18 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.StatusStrip stsStrip;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitbtn;
-        private System.Windows.Forms.ColumnHeader clmName;
-        private System.Windows.Forms.ColumnHeader clmModel;
-        private System.Windows.Forms.ColumnHeader clmCost;
-        private System.Windows.Forms.ColumnHeader clmTag;
-        private System.Windows.Forms.ColumnHeader clmService;
-        private System.Windows.Forms.ColumnHeader clmProblem;
+        private System.Windows.Forms.ColumnHeader clmNameRegular;
+        private System.Windows.Forms.ColumnHeader clmModelRegular;
+        private System.Windows.Forms.ColumnHeader clmCostRegular;
+        private System.Windows.Forms.ColumnHeader clmTagRegular;
+        private System.Windows.Forms.ColumnHeader clmProblemRegular;
+        private System.Windows.Forms.ListView lstViewExpress;
+        private System.Windows.Forms.ColumnHeader clmNameExpress;
+        private System.Windows.Forms.ColumnHeader clmModelExpress;
+        private System.Windows.Forms.ColumnHeader clmCostExpress;
+        private System.Windows.Forms.ColumnHeader clmTagExpress;
+        private System.Windows.Forms.ColumnHeader clmProblemExpress;
+        private System.Windows.Forms.Label lbl8;
     }
 }
 
