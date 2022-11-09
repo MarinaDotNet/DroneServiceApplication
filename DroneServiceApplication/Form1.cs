@@ -33,7 +33,7 @@ namespace DroneServiceApplication
             lstViewExpress.View = View.Details;
         }
 
-        //if service wasn't specified it auvtomatically add it to RegularService queue
+        //if service wasn't specified it automatically add it to RegularService queue
         //button method add
         private void AddNewItem(object sender, EventArgs e)
         {
@@ -172,7 +172,7 @@ namespace DroneServiceApplication
 
         private double incrementServiceTag()
         {
-            return (((double)numUpDown.Value) * 0.15);
+            return ((((double)numUpDown.Value) * 0.15) + (double)numUpDown.Value);
         }
 
         private void resetFormComponents()
