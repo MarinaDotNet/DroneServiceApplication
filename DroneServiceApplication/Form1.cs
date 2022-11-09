@@ -43,7 +43,7 @@ namespace DroneServiceApplication
 
                 if (GetServicePriority() == 1)
                 {
-                    drone.SetServiceTag(((double)numUpDown.Value) + incrementServiceTag());
+                    drone.SetServiceTag(incrementServiceTag());
                     drone.SetCost(double.Parse(txtCost.Text) + drone.GetServiceTag());
                     ExpressService.Enqueue(drone);
                     lstViewExpress.Items.Clear();
