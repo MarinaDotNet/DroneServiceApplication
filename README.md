@@ -14,7 +14,7 @@ This application is designed to log and manage drones that require service and r
     * **Service Tag:** A unique identifier for the service request.
 **Express Service Charge:** The base service cost is increased by a 15% surcharge for Express service.
 - **Dequeue and Complete Service:** Once repaired, the drone is removed from the queue and the details are added to the list of completed work.
-**Error Trapping and Feedback:** This includes full error handling, with feedback displayed in a status strip at the bottom of the form.
+- **Error Trapping and Feedback:** This includes full error handling, with feedback displayed in a status strip at the bottom of the form.
 - **User-Friendly Interface:** Designed with Windows Forms, providing an intuitive interface for managing drone service requests.
 
 ## Technologies Used
